@@ -20,6 +20,9 @@ android {
         dataBinding {
             enabled = true
         }
+        viewBinding {
+            enabled = true
+        }
     }
 
     buildTypes {
@@ -27,13 +30,13 @@ android {
             minifyEnabled false
             debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField( "String", "BASE_URL","\"https://urldeprueba\"")
+            buildConfigField( "String", "BASE_URL","\"https://jsonplaceholder.typicode.com/\"")
 
         }
         debug {
             minifyEnabled false
             debuggable true
-            buildConfigField("String", "BASE_URL","\"https://urldeprueba\"")
+            buildConfigField("String", "BASE_URL","\"https://jsonplaceholder.typicode.com/\"")
 
         }
     }
@@ -91,7 +94,24 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$view_model_live_data_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$view_model_live_data_version"
 
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    //tests dependencies
+    def junitVersion = "4.13"
+    testImplementation "junit:junit:$junitVersion"
+    def junitExtVersion = "1.1.1"
+    androidTestImplementation "androidx.test.ext:junit:$junitExtVersion"
+    androidTestImplementation "androidx.test.ext:junit-ktx:$junitExtVersion"
+    def testCoreKtx = "1.5.0"
+    androidTestImplementation "androidx.test:core-ktx:$testCoreKtx"
+    def testRulesVersion = "1.5.0"
+    androidTestImplementation "androidx.test:rules:$testRulesVersion"
+    def mockito_version = "3.1.0"
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    testImplementation "org.mockito:mockito-inline:$mockito_version"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
+    def archCoreTest = "2.1.0"
+    testImplementation "androidx.arch.core:core-testing:$archCoreTest"
+    def coroutinesTest = "1.3.4"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesTest"
+    def mockWebserverVersion = "4.7.2"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$mockWebserverVersion"
 }
