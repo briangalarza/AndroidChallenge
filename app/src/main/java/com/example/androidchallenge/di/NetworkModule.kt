@@ -1,6 +1,7 @@
 package com.example.androidchallenge.di
 
 import com.example.androidchallenge.BuildConfig
+import com.example.androidchallenge.networking.ResponseHandler
 import com.example.androidchallenge.repository.api.PhotosApi
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
@@ -11,6 +12,7 @@ val networkModule = module {
     factory { provideOkHttpClient() }
     factory { providePhotosApi(get()) }
     single { provideRetrofit(get()) }
+    factory { ResponseHandler() }
 }
 
 
