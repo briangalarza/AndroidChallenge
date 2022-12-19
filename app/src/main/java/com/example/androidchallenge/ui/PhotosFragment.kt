@@ -19,7 +19,18 @@ class PhotosFragment : Fragment() {
 
     private val photosViewModel: PhotoListViewModel by viewModel()
     private lateinit var binding: FragmentPhotosBinding
+    private lateinit var albumId: String
 
+    companion object {
+        const val ALBUM_ARG = "ALBUM_ARG"
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.getString(ALBUM_ARG)?.let {
+            albumId = it
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,7 +46,7 @@ class PhotosFragment : Fragment() {
 
         initBindings()
         initObservers()
-        photosViewModel.loadPhotos("1")
+        photosViewModel.loadPhotos(albumId)
     }
 
     private fun initBindings() {
@@ -69,15 +80,7 @@ class PhotosFragment : Fragment() {
     private fun renderList(photos: List<Photo>?) {
         if (!photos.isNullOrEmpty()) {
             setRecyclerData(photos)
-
-        } else {
-            showSnackBarMessage()
         }
-    }
-
-
-    private fun showSnackBarMessage() {
-        //Snackbar.make(this, "No hay resultados", Snackbar.LENGTH_SHORT).show()
     }
 
     private fun setRecyclerData(photos: List<Photo>) {

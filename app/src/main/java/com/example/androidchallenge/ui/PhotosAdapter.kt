@@ -2,6 +2,7 @@ package com.example.androidchallenge.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidchallenge.R
@@ -32,8 +33,8 @@ class PhotosAdapter(private val photos: List<Photo>) :
 
             binding.photoImg.setImageFromUrl(photo.thumbnail)
             binding.root.setOnClickListener { view ->
-                // val bundle = bundleOf(PhotoDetailsFragment.PHOTO_ARG to photo)
-                view.findNavController().navigate(R.id.action_photosFragment_to_photoDetailFragment)
+                val bundle = bundleOf(PhotoDetailFragment.PHOTO_ARG to photo)
+                view.findNavController().navigate(R.id.action_photosFragment_to_photoDetailFragment,bundle)
             }
         }
     }
