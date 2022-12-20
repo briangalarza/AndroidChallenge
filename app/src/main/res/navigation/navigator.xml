@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.androidchallenge.ui.HomeFragment"
-        android:label="fragment_home"
+        android:label="Albums"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_photosFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/photosFragment"
         android:name="com.example.androidchallenge.ui.PhotosFragment"
-        android:label="fragment_photos"
+        android:label="Photos"
         tools:layout="@layout/fragment_photos" >
         <action
             android:id="@+id/action_photosFragment_to_photoDetailFragment"
@@ -26,7 +26,7 @@
     <fragment
         android:id="@+id/photoDetailFragment"
         android:name="com.example.androidchallenge.ui.PhotoDetailFragment"
-        android:label="fragment_photo_detail"
+        android:label="Photo detail"
         tools:layout="@layout/fragment_photo_detail" />
 
 

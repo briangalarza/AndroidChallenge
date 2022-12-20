@@ -18,6 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
+                android:alpha="0.7"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -28,9 +29,8 @@
                 style="@style/AppTheme.Tittle.Text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-
                 android:drawablePadding="8dp"
-                android:text="Hola"
+                android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

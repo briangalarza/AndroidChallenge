@@ -38,9 +38,9 @@ class PhotoDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.photoDetailsImageZoom.setImageFromUrl(photo.imgUrl)
+        binding.photoDetailsImageZoom.setImageFromUrl(photo.thumbnail)
         with(binding.photoDetailsImage) {
-            setImageFromUrl(photo.imgUrl)
+            setImageFromUrl(photo.thumbnail)
             setOnClickListener {
                 zoomImageFromThumb(binding.photoDetailsImageZoom,
                     binding.photoDetailsContainer,
